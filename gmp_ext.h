@@ -1,20 +1,4 @@
 /*! \file gmp_ext.h
- *  \author
- *  \date WS18/19
- *  \version 0.3
- *
- *  Lecture: "Implementierung kryptographischer Verfahren", WS18/19.
- *  MPA-Project
- *  GMP Extension for implementation assigments.
- *
- *  - Offers primitive operations like addition and multiplication
- *    on single-precision integers (i.e., digits)
- *    with double-precision results.
- *
- *  - Offers a function for assigning a single-precision value to
- *    an arbitrary digit of a multi-precision integer.
- *
- *  !!! You don't need to change anything here !!!
  */
 
 #ifndef GMP_EXT_H
