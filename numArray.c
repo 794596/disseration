@@ -11,11 +11,11 @@
  * @param length size of the array that is being created.
  * @param file the file that is being opened and the content extracted.
  */
-char *file_to_array(long length, char *file)
+char *file_to_array(long long length, char *file)
 {
   char number[length];
   char *str;
-  str = (char *) malloc(length*2);
+  str = (char *) malloc(sizeof(number));
   //opens file
   FILE *fp = fopen(file, "rb");
   // prints  if the file fails to opens

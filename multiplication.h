@@ -16,6 +16,8 @@
 
 #include <gmp.h>
 
+
+
 /**
  * Function mpz_school_add.
  * Computes the sum c of two multi-precision
@@ -82,37 +84,16 @@ void mpz_rec_mul(mpz_t c, mpz_t a, mpz_t b);
  */
 void mpz_karatsuba_mul(mpz_t c, mpz_t a, mpz_t b);
 
-/**
- * Function mpz_montgomery_trans.
- * Performs montgomery transformation. Maps the operands
- * to another representation system.
- *
- * @param x_tilde the transformed multi-precision result.
- * @param x the multi-precision operand.
- */
+void karat_multiplying(mpz_t result, mpz_t number1, mpz_t number2);
 
-void mpz_montgomery_trans(mpz_t x_tilde, mpz_t x, mpz_t m);
+void mpz_karatsuba_mul_par(mpz_t c, mpz_t a, mpz_t b);
 
-/**
- * Function mpz_montgomery_get_m_prime.
- * Computes the negative inverse of the modulus. The result
- * m' is needed for montgomery reduction
- *
- * @param m_prime the negative inverse of m.
- * @param m the modulus.
- */
-void mpz_montgomery_get_m_prime(mpz_t m_prime, mpz_t m);
+void mpz_kara_mul_par(mpz_t c, mpz_t a, mpz_t b);
 
-/**
- * Function mpz_montgomery_red.
- * Computes montgomery reduction of a multi-precision product
- * T in montgomery respresentation system
- *
- * @param c the reduced multi-precision product
- * @param T the input multi-precision product.
- * @param m the modulus.
- * @param m_prime the negative inverse of m.
- */
-void mpz_montgomery_red(mpz_t c, mpz_t T, mpz_t m, mpz_t m_prime);
+void multiply_kara(mpz_t c, mpz_t a, mpz_t b);
+
+void mpz_toom3_mul(mpz_t c, mpz_t a, mpz_t b);
+
+void prnt();
 
 #endif /* MPA_ALGS_H */

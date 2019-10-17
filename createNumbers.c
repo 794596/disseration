@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <gmp.h>
 #include <string.h>
-#include "local.h"
 
 /**
  * Function randoms.
@@ -24,7 +23,7 @@ char randoms()
  * @param length number of integers inserted onto the file.
  * @param file the file that is being opened and the content added.
  */
-void create_number(long length, char *file)
+void create_number(long long length, char *file)
 {
   FILE *fptr;
   fptr = fopen(file , "w");
@@ -34,8 +33,11 @@ void create_number(long length, char *file)
   else {
     printf("Failed to create the file.\n");
   }
-  for (int i = 0; i < length; ++i){
+  for (long long i = 0; i < length; ++i){
     fputc(randoms(), fptr);
+    if (i%1000000==0){
+      printf("%lld\n", i);
+    }
   }
   fclose(fptr);
 }
