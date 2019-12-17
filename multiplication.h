@@ -1,21 +1,7 @@
-/*! \file mpa_algs.h
- *  \brief Definition of basic MPA functions.
- *  \author
- *  \date WS18/19
- *  \version 0.3
- *
- *  Lecture: "Implementierung kryptographischer Verfahren", WS18/19.
- *  MPA-Project.
- *  Solution to implementation assignments.
- *
- *  !!! You don't need to change anything here !!!
- */
-
 #ifndef MPA_ALGS_H
 #define MPA_ALGS_H
 
 #include <gmp.h>
-
 
 
 /**
@@ -28,6 +14,19 @@
  * @param b the second multi-precision operand.
  */
 void mpz_school_add(mpz_t c, mpz_t a, mpz_t b);
+
+
+void mpz_school_add_neg(mpz_t c, mpz_t a, mpz_t b);
+/**
+ * Function mpz_school_sub.
+ * Computes the sum c of two multi-precision
+ * integers a and b.
+ *
+ * @param c the multi-precision sum a - b.
+ * @param a the first multi-precision operand.
+ * @param b the second multi-precision operand.
+ */
+void mpz_school_sub(mpz_t c, mpz_t a, mpz_t b);
 
 /**
  * Function mpz_mul_limb.
@@ -93,6 +92,10 @@ void mpz_kara_mul_par(mpz_t c, mpz_t a, mpz_t b);
 void multiply_kara(mpz_t c, mpz_t a, mpz_t b);
 
 void mpz_toom3_mul(mpz_t c, mpz_t a, mpz_t b);
+
+void mpz_toom3_mul_par(mpz_t c, mpz_t a, mpz_t b);
+
+void mpz_toom_mul_par(mpz_t c, mpz_t a, mpz_t b);
 
 void prnt();
 

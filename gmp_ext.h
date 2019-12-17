@@ -6,7 +6,6 @@
 
 #include<gmp.h>
 
-
 /**
  * Function mpz_setlimbn.
  * Sets a_n of a = (a_k ... a_0) to l.
@@ -90,6 +89,18 @@ void mpz_setlimbn (mpz_t a, mp_limb_t l, mp_size_t n)
  * @return the carry (i.e., 2nd digit of the result).
  */
 extern inline mp_limb_t mp_add_limb(mp_limb_t* s, mp_limb_t a, mp_limb_t b) { return mpn_add_n(s, &a, &b, 1); }
+
+/**
+ * Function mp_sub_limb.
+ * subtracts two digits and returns a two-digit result.
+ *
+ * @param s pointer to the digit where the least significant
+ *          digit of the result should be stored.
+ * @param a 1st operand.
+ * @param b 2nd operand.
+ * @return the carry (i.e., 2nd digit of the result).
+ */
+extern inline mp_limb_t mp_sub_limb(mp_limb_t* s, mp_limb_t a, mp_limb_t b) { return mpn_sub_n(s, &a, &b, 1); }
 
 /**
  * Function mp_mul_limb.

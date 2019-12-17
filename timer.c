@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
+#include <time.h>
 #include <sys/resource.h>
 #include <gmp.h>
 #include <string.h>
@@ -8,6 +8,35 @@
 #include "multiplication.h"
 #include "numArray.h"
 #include "writeResults.h"
+
+
+float timer(double (*function)(), mpz_t number1, mpz_t number2){
+  struct timespec time1, time2;
+  double elapsed = 0, elapsed_sec = 0 , elapsed_nano = 0;
+  mpz_t answer;
+  mpz_mul(answer, number1, number2);
+  clock_gettime(CLOCK_REALTIME, &time1);
+
+  double result = function();
+
+  //get time = time2
+  clock_gettime(CLOCK_REALTIME, &time2);
+
+   //elapsed = (time2 - time1) * 1000
+   elapsed = (double)((time2.tv_sec)-(time1.tv_sec))*1000; //milliseconds
+   //elapsed_nano = (time2 - time1) / 1000000
+   elapsed_nano = (double)((time2.tv_nsec)-(time1.tv_nsec))/1000000;//milliseconds
+   //
+   if (elapsed_nano < 0) elapsed += 1000.0;
+   // elapsed = elapsed = elapsed_nano
+   elapsed = elapsed + elapsed_nano;
+   // prints time elapsed
+   if (mpz_cmp(result, answer)==0){
+     return elapsed;
+   } else {
+     return 0.0;
+   }
+}
 
 int main(int argc, char *argv[])
 {
